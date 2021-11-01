@@ -7,7 +7,7 @@ struct Stats {
   float min = NAN;
 };
 struct IAlerter{
-  virtual void please_alert(void);
+  virtual void please_alert(void) = 0;//pure virtual
 };
 struct EmailAlert: public IAlerter{
   bool emailSent = false;
