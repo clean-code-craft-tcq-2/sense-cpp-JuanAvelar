@@ -1,18 +1,19 @@
 #include <vector>
+#include "math.h"
 
 struct Stats {
-  float average;
-  float max;
-  float min;
+  float average = NAN;
+  float max = NAN;
+  float min = NAN;
 };
 struct IAlerter{
   //leave empty
 };
 struct EmailAlert: public IAlerter{
-  bool emailSent = 0;
+  bool emailSent = false;
 };
 struct LEDAlert: public IAlerter{
-  bool ledGlows = 0;
+  bool ledGlows = false;
 };
 class StatsAlerter{
 public:
