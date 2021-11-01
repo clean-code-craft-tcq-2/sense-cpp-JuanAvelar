@@ -2,7 +2,6 @@
 
 #include "catch.hpp"
 #include "stats.h"
-
 #include <cmath>
 
 TEST_CASE("reports average, minimum and maximum") {
@@ -17,8 +16,11 @@ TEST_CASE("average is NaN for empty array") {
     auto computedStats = Statistics::ComputeStatistics({});
     //All fields of computedStats (average, max, min) must be
     //NAN (not-a-number), as defined in math.h
-    
+
     //Design the REQUIRE statement here.
+    REQUIRE(isnan(computedStats.average));
+    REQUIRE(isnan(computedStats.max));
+    REQUIRE(isnan(computedStats.min));
     //Use http://www.cplusplus.com/reference/cmath/isnan/
 }
 
@@ -26,7 +28,7 @@ TEST_CASE("raises alerts when max is greater than threshold") {
     EmailAlert emailAlert;
     LEDAlert ledAlert;
     std::vector<IAlerter*> alerters = {&emailAlert, &ledAlert};
-    
+
     const float maxThreshold = 10.2;
     StatsAlerter statsAlerter(maxThreshold, alerters);
     statsAlerter.checkAndAlert({99.8, 34.2, 4.5, 6.7});
