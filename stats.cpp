@@ -20,7 +20,7 @@ Stats Statistics::ComputeStatistics(const std::vector<float>& FloatingPointVecto
 }
 
 StatsAlerter::StatsAlerter(const float Max_thresh, std::vector<IAlerter*> Alert_objects)
-  :_private_max_threshold(Max_thresh), _private_alert_objects(Alert_objects){
+  : _private_alert_objects(Alert_objects), _private_max_threshold(Max_thresh){
   //Implementation not needed, initializer list used instead
 }
 
